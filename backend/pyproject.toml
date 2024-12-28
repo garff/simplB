@@ -1,14 +1,17 @@
 [tool.poetry]
-name = "simplb"
+name = "app"
 version = "0.1.0"
-description = "Blog written with a clean and simple architecture in mind."
+description = "A backend for a blog written with simplicity in mind."
 authors = ["Mads Garff <mads@garff.dk>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "app"}]
+
 
 [tool.poetry.dependencies]
 python = "^3.12"
 fastapi = "^0.115.6"
+uvicorn = "^0.34.0"
 
 
 [build-system]
