@@ -17,6 +17,14 @@ repos:
         args: [--no-strict-optional, --ignore-missing-imports]
         files: ^(app/|tests/)
 
+  - repo: https://github.com/eslint/eslint
+    rev: v9.17.0
+    hooks:
+      - id: eslint
+        name: ESLint
+        description: Lint JavaScript/TypeScript files with ESLint
+        files: \.(js|jsx|ts|tsx)$
+
   - repo: local
     hooks:
       - id: prettier
