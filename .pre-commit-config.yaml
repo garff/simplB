@@ -1,0 +1,57 @@
+# .pre-commit-config.yaml
+
+# This file defines the hooks to be run by the pre-commit framework.
+
+# Default repository for backend hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.14.0
+    hooks:
+      - id: mypy
+        args: [--no-strict-optional, --ignore-missing-imports]
+        files: ^(app/|tests/)
+
+  - repo: local
+    hooks:
+      - id: prettier
+        name: Prettier
+        entry: ./frontend/node_modules/.bin/prettier --write
+        language: node
+        description: Format code with Prettier
+        files: \.(js|jsx|ts|tsx|json|css|scss|html|md)$
+
+      - id: black
+        name: black
+        entry: black
+        language: system
+        types: [python]
+        files: ^(app/|tests/)
+
+      - id: isort
+        name: isort
+        entry: isort
+        language: system
+        types: [python]
+        exclude: ".*/migrations/.*"
+        args:
+          [
+            "--line-length=110",
+            "--multi-line=3",
+            "--force-grid-wrap=0",
+            "--trailing-comma",
+            "--use-parentheses",
+            "--ensure-newline-before-comments",
+          ]
+
+      - id: flake8
+        name: flake8
+        entry: flake8
+        language: system
+        types: [python]
+        files: ^(app/|tests/)
