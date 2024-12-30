@@ -2,7 +2,7 @@
 
 # This file defines the hooks to be run by the pre-commit framework.
 
-# Default repository for hooks
+# Default repository for backend hooks
 repos:
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v0.800
@@ -10,6 +10,7 @@ repos:
       - id: mypy
         args: [--no-strict-optional, --ignore-missing-imports]
         files: ^(app/|tests/)
+        
   - repo: local
     hooks:
       - id: black
@@ -23,7 +24,6 @@ repos:
         entry: isort
         language: system
         types: [ python ]
-        include: ^(app/|tests/)
         exclude: '.*/migrations/.*'
         args: [
             '--line-length=110',
