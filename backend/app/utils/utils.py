@@ -19,4 +19,4 @@ def get_blog_post_file_names() -> list[str]:
 def get_blog_post_content(file_name: str) -> str:
     """Returns the content of a blog post."""
     with open(os.path.join(BLOG_POSTS_DIR, file_name), 'r', encoding='utf-8') as file:
-        return file.read()
+        return { 'file_name': file_name, 'content': file.read() }
