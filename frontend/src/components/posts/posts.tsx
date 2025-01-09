@@ -12,7 +12,12 @@ const Posts = () => {
   });
 
   if (isLoading) return <Loading />;
-  if (isError) return <div>Sorry, There Was An Error</div>;
+  if (isError)
+    return (
+      <div>
+        There was an <i>error</i> fetching the blog post!
+      </div>
+    );
 
   return (
     <div>
