@@ -12,21 +12,26 @@ const Posts = () => {
   });
 
   if (isLoading) return <Loading />;
-  if (isError)
+  if (isError) {
     return (
       <div>
         There was an <i>error</i> fetching the blog post!
       </div>
     );
+  }
 
   return (
     <div>
       {data != null
-        ? data.map(post => {
+        ? data.map((post, idx) => {
+            const postTitle = post.file_name.slice(0, post.file_name.length - 3);
+
             return (
               <Post
-                key={post.file_name}
-                postClassName=""
+                key={postTitle}
+                lastPost={idx !== data.length - 1}
+                postClassName="pb-32 w-[52rem]"
+                postTitle={postTitle}
                 postContent={post.content}
               />
             );
