@@ -26,7 +26,9 @@ const Sidebar = () => {
             const link = `#${postTitle}`;
 
             return (
-              <div className="pb-2">
+              <div
+                key={postTitle}
+                className="pb-2">
                 <a
                   href={link}
                   className="text-m">
