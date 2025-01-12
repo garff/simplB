@@ -1,3 +1,4 @@
+import React from 'react';
 import Posts from '../components/posts/posts';
 import { Suspense } from 'react';
 import Loading from './loading';
@@ -17,7 +18,8 @@ export default function Home() {
       <footer className="w-full fixed bottom-0 pb-4 flex justify-center items-center">
         <a
           href="https://github.com/garff"
-          target="_blank">
+          target="_blank"
+          rel="noreferrer">
           Mads Garff&trade; @ 2025
         </a>
       </footer>
