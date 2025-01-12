@@ -1,4 +1,5 @@
 """Main module for the backend."""
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -26,3 +27,6 @@ def blog_posts():
     """Blog posts get route."""
     blog_post_file_names = get_blog_post_file_names()
     return [get_blog_post_content(file_name) for file_name in blog_post_file_names]
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
